@@ -1,14 +1,12 @@
 # Strategy AMA
 
-This is example ama strategy for the amanstration purposes.
-
 [![Status][gha-image-check-master]][gha-link-check-master]
 [![Status][gha-image-compile-master]][gha-link-compile-master]
 [![Channel][tg-channel-image]][tg-channel-link]
 [![Discuss][gh-discuss-badge]][gh-discuss-link]
 [![License][license-image]][license-link]
 
-Strategy based on the AMA indicator.
+Strategy based on the Adaptive Moving Average (AMA) indicator.
 
 ## Dependencies
 
@@ -19,6 +17,7 @@ Strategy based on the AMA indicator.
 | v1.002   | v2.002    |
 | v1.003   | v2.003    |
 | v1.004   | v2.004    |
+| v1.005   | v2.005    |
 
 <!-- Named links -->
 
