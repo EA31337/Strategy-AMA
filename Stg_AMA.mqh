@@ -19,8 +19,8 @@ INPUT float AMA_PriceStopLevel = 2;         // Price limit level
 INPUT int AMA_TickFilterMethod = 28;        // Tick filter method (0-255)
 INPUT float AMA_MaxSpread = 4.0;            // Max spread to trade (in pips)
 INPUT short AMA_Shift = 0;                  // Shift
-INPUT float AMA_OrderCloseLoss = 0;         // Order close loss
-INPUT float AMA_OrderCloseProfit = 0;       // Order close profit
+INPUT float AMA_OrderCloseLoss = 80;        // Order close loss
+INPUT float AMA_OrderCloseProfit = 80;      // Order close profit
 INPUT int AMA_OrderCloseTime = -30;         // Order close time in mins (>0) or bars (<0)
 INPUT_GROUP("AMA strategy: AMA indicator params");
 INPUT int AMA_Indi_AMA_InpPeriodAMA = 16;                              // AMA period
