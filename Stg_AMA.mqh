@@ -106,14 +106,14 @@ class Stg_AMA : public Strategy {
     switch (_cmd) {
       case ORDER_TYPE_BUY:
         // Buy signal.
-        // _result &= Low[_shift] < _indi[_shift][0];
+        _result &= Low[_shift] < _indi[_shift][0];
         _result &= _indi.IsIncreasing(2, 0, _shift);
         _result &= _indi.IsIncByPct(_level, 0, _shift, 2);
         _result &= _method > 0 ? _signals.CheckSignals(_method) : _signals.CheckSignalsAll(-_method);
         break;
       case ORDER_TYPE_SELL:
         // Sell signal.
-        // _result &= High[_shift] > _indi[_shift][0];
+        _result &= High[_shift] > _indi[_shift][0];
         _result &= _indi.IsDecreasing(2, 0, _shift);
         _result &= _indi.IsDecByPct(_level, 0, _shift, 2);
         _result &= _method > 0 ? _signals.CheckSignals(_method) : _signals.CheckSignalsAll(-_method);
