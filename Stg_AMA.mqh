@@ -14,7 +14,7 @@ INPUT int AMA_SignalOpenBoostMethod = 0;    // Signal open boost method
 INPUT int AMA_SignalCloseMethod = 0;        // Signal close method
 INPUT int AMA_SignalCloseFilter = 32;       // Signal close filter (-127-127)
 INPUT float AMA_SignalCloseLevel = 0.001f;  // Signal close level
-INPUT int AMA_PriceStopMethod = 0;          // Price limit method
+INPUT int AMA_PriceStopMethod = 29;         // Price limit method
 INPUT float AMA_PriceStopLevel = 2;         // Price limit level
 INPUT int AMA_TickFilterMethod = 28;        // Tick filter method (0-255)
 INPUT float AMA_MaxSpread = 4.0;            // Max spread to trade (in pips)
@@ -23,10 +23,10 @@ INPUT float AMA_OrderCloseLoss = 80;        // Order close loss
 INPUT float AMA_OrderCloseProfit = 80;      // Order close profit
 INPUT int AMA_OrderCloseTime = -30;         // Order close time in mins (>0) or bars (<0)
 INPUT_GROUP("AMA strategy: AMA indicator params");
-INPUT int AMA_Indi_AMA_InpPeriodAMA = 16;                              // AMA period
-INPUT int AMA_Indi_AMA_InpFastPeriodEMA = 6;                           // Fast EMA period
-INPUT int AMA_Indi_AMA_InpSlowPeriodEMA = 40;                          // Slow EMA period
-INPUT int AMA_Indi_AMA_InpShiftAMA = 0;                                // AMA shift
+INPUT int AMA_Indi_AMA_InpPeriodAMA = 20;                              // AMA period
+INPUT int AMA_Indi_AMA_InpFastPeriodEMA = 4;                           // Fast EMA period
+INPUT int AMA_Indi_AMA_InpSlowPeriodEMA = 30;                          // Slow EMA period
+INPUT int AMA_Indi_AMA_InpShiftAMA = 4;                                // AMA shift
 INPUT int AMA_Indi_AMA_Shift = 0;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE AMA_Indi_AMA_SourceType = IDATA_BUILTIN;  // Source type
 
