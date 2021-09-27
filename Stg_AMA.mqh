@@ -9,7 +9,7 @@ INPUT float AMA_LotSize = 0;                // Lot size
 INPUT int AMA_SignalOpenMethod = 0;         // Signal open method
 INPUT float AMA_SignalOpenLevel = 0.001f;   // Signal open level
 INPUT int AMA_SignalOpenFilterMethod = 32;  // Signal open filter method
-INPUT int AMA_SignalOpenFilterTime = 3;    // Signal open filter time (0-31)
+INPUT int AMA_SignalOpenFilterTime = 3;     // Signal open filter time (0-31)
 INPUT int AMA_SignalOpenBoostMethod = 0;    // Signal open boost method
 INPUT int AMA_SignalCloseMethod = 0;        // Signal close method
 INPUT int AMA_SignalCloseFilter = 32;       // Signal close filter (-127-127)
@@ -83,11 +83,11 @@ class Stg_AMA : public Strategy {
 #endif
     // Initialize indicator.
     IndiAMAParams ama_params(_indi_params);
-    _stg_params.SetIndicator(new Indi_AMA(_indi_params));
     // Initialize Strategy instance.
     ChartParams _cparams(_tf, _Symbol);
     TradeParams _tparams;
     Strategy *_strat = new Stg_AMA(_stg_params, _tparams, _cparams, "AMA");
+    _strat.SetIndicator(new Indi_AMA(_indi_params));
     return _strat;
   }
 
