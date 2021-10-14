@@ -36,8 +36,9 @@ INPUT ENUM_IDATA_SOURCE_TYPE AMA_Indi_AMA_SourceType = IDATA_BUILTIN;  // Source
 struct IndiAMAParamsDefaults : IndiAMAParams {
   IndiAMAParamsDefaults()
       : IndiAMAParams(::AMA_Indi_AMA_InpPeriodAMA, ::AMA_Indi_AMA_InpFastPeriodEMA, ::AMA_Indi_AMA_InpSlowPeriodEMA,
-                      ::AMA_Indi_AMA_InpShiftAMA, PRICE_TYPICAL, ::AMA_Indi_AMA_Shift, PERIOD_CURRENT,
-                      ::AMA_Indi_AMA_SourceType) {}
+                      ::AMA_Indi_AMA_InpShiftAMA, PRICE_TYPICAL, ::AMA_Indi_AMA_Shift) {
+    SetDataSourceType(::AMA_Indi_AMA_SourceType);
+  }
 };
 
 // Defines struct with default user strategy values.
@@ -82,7 +83,7 @@ class Stg_AMA : public Strategy {
                              stg_ama_h8);
 #endif
     // Initialize indicator.
-    IndiAMAParams ama_params(_indi_params);
+    IndiAMAParams ama_params(_indi_params, _tf);
     // Initialize Strategy instance.
     ChartParams _cparams(_tf, _Symbol);
     TradeParams _tparams;
