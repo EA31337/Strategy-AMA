@@ -4,8 +4,8 @@
  */
 
 // Defines indicator's parameter values for the given pair symbol and timeframe.
-struct Indi_AMA_Params_M1 : IndiAMAParams {
-  Indi_AMA_Params_M1() : IndiAMAParams(indi_ama_defaults, PERIOD_M1) { shift = 0; }
+struct Indi_AMA_Params_M1 : IndiAIndiMAParams {
+  Indi_AMA_Params_M1() : IndiAIndiMAParams(indi_ama_defaults, PERIOD_M1) { shift = 0; }
 } indi_ama_m1;
 
 // Defines strategy's parameter values for the given pair symbol and timeframe.

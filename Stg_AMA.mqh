@@ -33,10 +33,10 @@ INPUT ENUM_IDATA_SOURCE_TYPE AMA_Indi_AMA_SourceType = IDATA_BUILTIN;  // Source
 // Structs.
 
 // Defines struct with default user indicator values.
-struct IndiAMAParamsDefaults : IndiAMAParams {
-  IndiAMAParamsDefaults()
-      : IndiAMAParams(::AMA_Indi_AMA_InpPeriodAMA, ::AMA_Indi_AMA_InpFastPeriodEMA, ::AMA_Indi_AMA_InpSlowPeriodEMA,
-                      ::AMA_Indi_AMA_InpShiftAMA, PRICE_TYPICAL, ::AMA_Indi_AMA_Shift) {
+struct IndiAIndiMAParamsDefaults : IndiAIndiMAParams {
+  IndiAIndiMAParamsDefaults()
+      : IndiAIndiMAParams(::AMA_Indi_AMA_InpPeriodAMA, ::AMA_Indi_AMA_InpFastPeriodEMA, ::AMA_Indi_AMA_InpSlowPeriodEMA,
+                          ::AMA_Indi_AMA_InpShiftAMA, PRICE_TYPICAL, ::AMA_Indi_AMA_Shift) {
     SetDataSourceType(::AMA_Indi_AMA_SourceType);
   }
 };
@@ -73,17 +73,17 @@ class Stg_AMA : public Strategy {
 
   static Stg_AMA *Init(ENUM_TIMEFRAMES _tf = NULL) {
     // Initialize strategy initial values.
-    IndiAMAParamsDefaults _indi_ama_defaults;
-    IndiAMAParams _indi_params(_indi_ama_defaults, _tf);
+    IndiAIndiMAParamsDefaults _indi_ama_defaults;
+    IndiAIndiMAParams _indi_params(_indi_ama_defaults, _tf);
     StgParams _stg_params(stg_ama_defaults);
 #ifdef __config__
-    SetParamsByTf<IndiAMAParams>(_indi_params, _tf, indi_ama_m1, indi_ama_m5, indi_ama_m15, indi_ama_m30, indi_ama_h1,
-                                 indi_ama_h4, indi_ama_h8);
+    SetParamsByTf<IndiAIndiMAParams>(_indi_params, _tf, indi_ama_m1, indi_ama_m5, indi_ama_m15, indi_ama_m30,
+                                     indi_ama_h1, indi_ama_h4, indi_ama_h8);
     SetParamsByTf<StgParams>(_stg_params, _tf, stg_ama_m1, stg_ama_m5, stg_ama_m15, stg_ama_m30, stg_ama_h1, stg_ama_h4,
                              stg_ama_h8);
 #endif
     // Initialize indicator.
-    IndiAMAParams ama_params(_indi_params, _tf);
+    IndiAIndiMAParams ama_params(_indi_params, _tf);
     // Initialize Strategy instance.
     ChartParams _cparams(_tf, _Symbol);
     TradeParams _tparams;
