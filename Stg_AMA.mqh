@@ -32,15 +32,6 @@ INPUT ENUM_IDATA_SOURCE_TYPE AMA_Indi_AMA_SourceType = IDATA_BUILTIN;  // Source
 
 // Structs.
 
-// Defines struct with default user indicator values.
-struct IndiAMAParamsDefaults : IndiAMAParams {
-  IndiAMAParamsDefaults()
-      : IndiAMAParams(::AMA_Indi_AMA_InpPeriodAMA, ::AMA_Indi_AMA_InpFastPeriodEMA, ::AMA_Indi_AMA_InpSlowPeriodEMA,
-                      ::AMA_Indi_AMA_InpShiftAMA, PRICE_TYPICAL, ::AMA_Indi_AMA_Shift) {
-    SetDataSourceType(::AMA_Indi_AMA_SourceType);
-  }
-};
-
 // Defines struct with default user strategy values.
 struct Stg_AMA_Params_Defaults : StgParams {
   Stg_AMA_Params_Defaults()
@@ -90,8 +81,11 @@ class Stg_AMA : public Strategy {
    * Event on strategy's init.
    */
   void OnInit() {
-    IndiAMAParamsDefaults _indi_ama_defaults;
-    IndiAMAParams ama_params(_indi_ama_defaults, Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
+    IndiAMAParams ama_params(::AMA_Indi_AMA_InpPeriodAMA, ::AMA_Indi_AMA_InpFastPeriodEMA,
+                             ::AMA_Indi_AMA_InpSlowPeriodEMA, ::AMA_Indi_AMA_InpShiftAMA, PRICE_TYPICAL,
+                             ::AMA_Indi_AMA_Shift);
+    ama_params.SetDataSourceType(::AMA_Indi_AMA_SourceType);
+    ama_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
     SetIndicator(new Indi_AMA(ama_params));
   }
 
