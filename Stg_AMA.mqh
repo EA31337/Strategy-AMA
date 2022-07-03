@@ -85,7 +85,7 @@ class Stg_AMA : public Strategy {
                              ::AMA_Indi_AMA_InpSlowPeriodEMA, ::AMA_Indi_AMA_InpShiftAMA, PRICE_TYPICAL,
                              ::AMA_Indi_AMA_Shift);
     ama_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-    SetIndicator(new Indi_AMA(ama_params, NULL, ::AMA_Indi_AMA_SourceType));
+    SetIndicator(new Indi_AMA(ama_params, ::AMA_Indi_AMA_SourceType));
   }
 
   /**
